@@ -73,3 +73,23 @@ function oxy_woo_template_overrides($template, $template_name, $template_path) {
 
     return $template;
 }
+
+// This PHP code represents a WordPress plugin called "Oxygen Elements for WooCommerce." The plugin adds additional functionality to WooCommerce, specifically when used with the Oxygen Builder. Here's a breakdown of the code:
+// The plugin information is defined using comments. It includes the name, author, author URI, description, and version of the plugin.
+// The code includes the EDD updater file using require_once to enable easy updates for the plugin.
+// A constant CT_OXYGEN_WOOCOMMERCE_VERSION is defined to store the plugin version.
+// The oxygen_woocommerce_init function is hooked into the plugins_loaded action. It serves as the initialization function for the Oxygen WooCommerce plugin.
+// Inside the oxygen_woocommerce_init function, two checks are performed:
+// First, it checks if the WooCommerce plugin is installed and active by verifying the existence of the WooCommerce class. If it's not active, the function returns and the plugin initialization is halted.
+// Second, it checks if the Oxygen plugin is installed and active by verifying the existence of the OxygenElement class. If it's not active, the function returns and the plugin initialization is halted.
+// Two constants, OXY_WOO_ASSETS_PATH and OXY_WOO_SETTINGS_ICONS, are defined to store the paths to the plugin's assets and icons.
+// The woocommerce_locate_template filter is added to override WooCommerce template files. It calls the oxy_woo_template_overrides function when locating a template file.
+// The plugin requires three additional files: OxyWooEl.php, OxyWooCommerce.php, and OxyWooConditions.php. These files likely contain additional classes and functions specific to the Oxygen WooCommerce integration.
+// The OxyWooCommerce and OxyWooConditions classes are instantiated to utilize their respective functionalities.
+// The oxy_woo_template_overrides function is defined to handle the override of WooCommerce template files. It receives the template file, template name, and template path as arguments.
+// Inside the function, the global $woocommerce variable is accessed to get the WooCommerce template URL.
+// The $template_path variable is set to the path where the overridden templates are stored (WP_CONTENT_DIR . '/oxywoocotemplates/woocommerce/').
+// The function attempts to locate the template file by checking if it exists within the passed path and template name using locate_template(). If found, it sets the $template variable to the located template file.
+// If the template file is still not found, it checks if the file exists directly in the template path and sets the $template variable accordingly.
+// If no template file is found, the original template file path ($_template) is used.
+// Finally, the function returns the selected template file.
